@@ -11,27 +11,38 @@ angular.module('application')
 
     var endpoint = ApiFactory.host.concat('/questions');
 
-    var getAll = function() {
+    this.getAll = function() {
       return $http.get(endpoint);
     };
 
-    var findById = function(params) {
+    this.getAll = function() {
+      var endpoint = endpoint + '/user/' + ApiFactory.getSession()
+      return $http.get(endpoint);
+    };
+
+    this.findById = function(params) {
       return $http.get(endpoint + '/' + params.question_id);
     };
 
-    var create = function(params) {
+    this.create = function(params) {
+      // var param = {
+      //   description: params.description
+      // };
+
+      console.log(params);
+
+      return $http.post(endpoint, params);
+    };
+
+    this.remove = function(params) {
 
     };
 
-    var remove = function(params) {
+    this.update = function(params) {
 
     };
 
-    var update = function(params) {
-
-    };
-
-    var rate = function(params) {
+    this.rate = function(params) {
 
     };
   }

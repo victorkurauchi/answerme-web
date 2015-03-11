@@ -8,7 +8,8 @@
     //foundation
     'foundation',
     'foundation.dynamicRouting',
-    'foundation.dynamicRouting.animations'
+    'foundation.dynamicRouting.animations',
+    'angular-md5'
   ])
     .config(config)
     .run(run)
@@ -32,8 +33,8 @@
     FastClick.attach(document.body);
   }
 
-  ApiFactory.$inject = ['$http'];
-  function ApiFactory($http) {
+  ApiFactory.$inject = ['$http', 'md5'];
+  function ApiFactory($http, md5) {
     angular.extend(this, {
       $http: $http
     });
@@ -44,9 +45,24 @@
       return $http.get(host);
     };
 
+    var createHashCode = function(str) {
+      return md5.createHash(str || '');
+    };
+
+    var setSession = function() {
+      var hash = createHashCode();
+      localStorage.setItem('_answerme_user', hash);
+    };
+
+    var getSession = function(id) {
+      return localStorage.getItem('_answerme_user');
+    }
+
     return {
       host: host,
-      ping: ping
+      ping: ping,
+      setSession: setSession,
+      getSession: getSession
     };
   }
 

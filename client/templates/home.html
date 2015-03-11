@@ -14,5 +14,15 @@ controller: QuestionController
     <a href="#" class="button" ng-click="askQuestion()">ASK</a>
   </span>
 
+  <section class="block-list">
+    <header>your questions</header>
+    <ul>
+     
+      <li ng-repeat="q in questions" class="with-chevron">
+        <a href="#">{{q.description}}</a> 
+      </li>
+    </ul>
+  </section>
+
 </form>
 
