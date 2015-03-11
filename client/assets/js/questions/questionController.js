@@ -19,7 +19,7 @@ angular.module('application')
 
     $scope.askQuestion = function() {
       var params = {
-        description: question.description
+        description: question.description,
         user_id: ApiFactory.getSession()
       };
 
