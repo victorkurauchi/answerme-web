@@ -38,7 +38,7 @@
       $http: $http
     });
 
-    var host = 'http://104.131.229.56/api';
+    var host = 'http://104.131.229.56:3000/api';
 
     var ping = function() {
       return $http.get(host);
