@@ -15,7 +15,7 @@ angular.module('application')
       return $http.get(endpoint);
     };
 
-    this.getAll = function() {
+    this.getAllByUser = function() {
       var endpoint = endpoint + '/user/' + ApiFactory.getSession()
       return $http.get(endpoint);
     };
