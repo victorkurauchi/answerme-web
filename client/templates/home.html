@@ -20,6 +20,7 @@ controller: QuestionController
      
       <li ng-repeat="q in questions" class="with-chevron">
         <a href="#">{{q.description}}</a> 
+        <rating entity="question">  </rating>
       </li>
     </ul>
   </section>

@@ -9,9 +9,11 @@ angular.module('application')
       $scope: $scope, $stateParams: $stateParams, $state: $state
     }));
 
-    ApiFactory.setSession();
-
-    ApiFactory.getSession();
+    if (!ApiFactory.getSession()) {
+      ApiFactory.setSession();
+    } 
+      
+    var sessionUserId = ApiFactory.getSession();
 
     $scope.question = {};
 
@@ -20,7 +22,7 @@ angular.module('application')
     $scope.askQuestion = function() {
       var params = {
         description: question.description,
-        user_id: ApiFactory.getSession()
+        user_id: sessionUserId
       };
 
       QuestionService.create(params)
@@ -44,13 +46,17 @@ angular.module('application')
     };
 
     $scope.getAllByUser = function() {
-      QuestionService.getAllByUser()
+      var params = {
+        user_id: sessionUserId
+      };
+
+      QuestionService.getAllByUser(params)
         .then(function(result) {
           console.log(result.data);
           $scope.questions = result.data;
         });
     };
 
-    $scope.getAll();
+    $scope.getAllByUser();
 
   }

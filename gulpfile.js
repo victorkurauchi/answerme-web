@@ -33,11 +33,13 @@ var foundationJS = [
   'bower_components/foundation-apps/js/vendor/**/*.js',
   'bower_components/foundation-apps/js/angular/**/*.js',
   'bower_components/angular-md5/angular-md5.js',
+  'bower_components/hammerjs/hammer.js',
   '!bower_components/foundation-apps/js/angular/app.js'
 ];
 // These files are for your app's JavaScript
 var appJS = [
   'client/assets/js/app.js',
+  'client/assets/js/directives.js',
   'client/assets/js/*/*.js'
 ];
 
