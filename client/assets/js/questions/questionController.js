@@ -21,7 +21,7 @@ angular.module('application')
 
     $scope.askQuestion = function() {
       var params = {
-        description: question.description,
+        description: $scope.question.description,
         user_id: sessionUserId
       };
 
