@@ -28,7 +28,7 @@ angular.module('application')
       QuestionService.create(params)
         .then(function(result) {
           $scope.question = {};
-          $scope.getAll();
+          $scope.getAllByUser();
         })
         .catch(function(error) {
           console.log('erro');

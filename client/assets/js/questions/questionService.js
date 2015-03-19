@@ -9,29 +9,36 @@ angular.module('application')
       console.log(result);
     });
 
-    var endpoint = ApiFactory.host.concat('/questions');
+    var api = ApiFactory.host.concat('/questions');
 
     this.getAll = function() {
-      return $http.get(endpoint);
+      return $http.get(api);
     };
 
     this.getAllByUser = function(params) {
-      endpoint = endpoint + '/user/' + params.user_id
+      var endpoint = api + '/user/' + params.user_id;
+      return $http.get(endpoint);
+    };
+
+    this.getRandom = function() {
+      var endpoint = api + '/random';
       return $http.get(endpoint);
     };
 
     this.findById = function(params) {
-      return $http.get(endpoint + '/' + params.question_id);
+      return $http.get(api + '/' + params.question_id);
     };
 
     this.create = function(params) {
-      // var param = {
-      //   description: params.description
-      // };
 
-      console.log(params);
+      console.log(api);
 
-      return $http.post(endpoint, params);
+      return $http({
+        url: api,
+        method: 'post',
+        data: params
+      });
+
     };
 
     this.remove = function(params) {

@@ -3,5 +3,17 @@ name: allquestions
 url: /allquestions
 controller: QuestionController
 ---
+<p>There are many questions around. <br/>
+People need some answers with them </p>
 
-<p>Hello</p>
+<section class="block-list">
+  <ul>
+   
+    <li ng-repeat="q in questions">
+      <div>
+        <a href="#" class="pull-left">{{q.description}}</a> 
+        <rating class="pull-right" entity="question">  </rating>
+      </div>
+    </li>
+  </ul>
+</section>
