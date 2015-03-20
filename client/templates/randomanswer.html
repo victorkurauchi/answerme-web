@@ -4,11 +4,19 @@ url: /randomanswer
 controller: AnswerController
 ---
 
-<p>Answer some random question</p>
+<h2>Answer some random question</h2>
+<hr>
 
 <form action="">
   
-  <strong>{{question.description}}</strong>
-  <input type="text" ng-model="answer.description"> 
+  <h4>{{question.description}}</h4>
+
+  <span class="inline-label">
+    <input type="text" ng-model="answer.description">
+    <a href="#" class="button" ng-click="answer()">Answer</a>
+  </span>
+
+  
+  <span ng-if="{{message}}" class="success label">{{message}}</span>
 
 </form>

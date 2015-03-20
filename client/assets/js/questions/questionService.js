@@ -6,7 +6,6 @@ angular.module('application')
   QuestionService.$inject = ['ApiFactory', '$http'];
   function QuestionService(ApiFactory, $http) {
     ApiFactory.ping().then(function(result) {
-      console.log(result);
     });
 
     var api = ApiFactory.host.concat('/questions');
@@ -22,7 +21,6 @@ angular.module('application')
 
     this.getRandom = function() {
       var endpoint = ApiFactory.host.concat('/randomquestion');
-      console.log(endpoint);
       return $http.get(endpoint);
     };
 

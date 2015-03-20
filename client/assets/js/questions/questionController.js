@@ -52,7 +52,6 @@ angular.module('application')
 
       QuestionService.getAllByUser(params)
         .then(function(result) {
-          console.log(result.data);
           $scope.questions = result.data;
         });
     };
