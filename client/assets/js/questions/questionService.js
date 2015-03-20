@@ -21,7 +21,8 @@ angular.module('application')
     };
 
     this.getRandom = function() {
-      var endpoint = api + '/random';
+      var endpoint = ApiFactory.host.concat('/randomquestion');
+      console.log(endpoint);
       return $http.get(endpoint);
     };
 
@@ -30,8 +31,6 @@ angular.module('application')
     };
 
     this.create = function(params) {
-
-      console.log(api);
 
       return $http({
         url: api,

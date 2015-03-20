@@ -34,8 +34,9 @@ angular.module('application')
 
       QuestionService.getRandom()
         .then(function(result) {
-          console.log(result.data);
-          $scope.question = result.data;
+
+          console.log(result);
+          $scope.question = result.data.first();
         })
         .catch(function(error) {
           console.log(error);

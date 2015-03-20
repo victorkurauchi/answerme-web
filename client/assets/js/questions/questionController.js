@@ -40,7 +40,7 @@ angular.module('application')
     $scope.getAll = function() {
       QuestionService.getAll()
         .then(function(result) {
-          console.log(result.data);
+          // console.log(result.data);
           $scope.questions = result.data;
         });
     };

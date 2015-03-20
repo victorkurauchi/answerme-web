@@ -1,14 +1,14 @@
 ---
 name: randomanswer
 url: /randomanswer
-controller: QuestionController
+controller: AnswerController
 ---
 
 <p>Answer some random question</p>
 
 <form action="">
   
-  <p>{{question.description}}</p>
+  <strong>{{question.description}}</strong>
   <input type="text" ng-model="answer.description"> 
 
 </form>
